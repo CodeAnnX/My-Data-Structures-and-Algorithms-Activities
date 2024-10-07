@@ -5,7 +5,6 @@ public class Array {
 		for ( int x=0; x<3;  x++ ) {
 		
 		System.out.println (array [x]);
-		}
-		
+		}	
 	}
 }
