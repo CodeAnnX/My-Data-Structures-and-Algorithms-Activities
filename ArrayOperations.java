@@ -35,12 +35,12 @@ public class ArrayOperations {
 
         int[] sortedArray = Arrays.copyOf(array, array.length);
         switch (choice) {
-            case 1 -> bubbleSort(sortedArray);
-            case 2 -> insertionSort(sortedArray);
-            case 3 -> selectionSort(sortedArray);
-            case 4 -> mergeSort(sortedArray, 0, sortedArray.length - 1);
-            case 5 -> quickSort(sortedArray, 0, sortedArray.length - 1);
-            default -> System.out.println("Invalid choice");
+            case 1 : bubbleSort(sortedArray);
+            case 2 : insertionSort(sortedArray);
+            case 3 : selectionSort(sortedArray);
+            case 4 : mergeSort(sortedArray, 0, sortedArray.length - 1);
+            case 5 : quickSort(sortedArray, 0, sortedArray.length - 1);
+            default : System.out.println("Invalid choice");
         }
 
         System.out.println("Sorted array: " + Arrays.toString(sortedArray));
