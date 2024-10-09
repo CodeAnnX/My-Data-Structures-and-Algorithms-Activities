@@ -144,3 +144,69 @@ public class ArrayOperations {
 
         // Copy data to temp arrays
         for (int i = 0; i < n1; i++) {
+            L[i] = array[left + i];
+        }
+        for (int j = 0; j < n2; j++) {
+            R[j] = array[mid + 1 + j];
+        }
+
+        // Merge the temp arrays
+        int i = 0, j = 0;
+        int k = left;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                array[k] = L[i];
+                i++;
+            } else {
+                array[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements
+        while (i < n1) {
+            array[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j < n2) {
+            array[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+
+    // 7. Quick Sort
+    public static void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int pi = partition(array, low, high);
+
+            // Recursively sort elements before and after partition
+            quickSort(array, low, pi - 1);
+            quickSort(array, pi + 1, high);
+        }
+    }
+
+    public static int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = (low - 1);
+
+        for (int j = low; j < high; j++) {
+            if (array[j] < pivot) {
+                i++;
+                // Swap array[i] and array[j]
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+
+        // Swap array[i + 1] and pivot (array[high])
+        int temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
+
+        return i + 1;
+    }
+                    }
